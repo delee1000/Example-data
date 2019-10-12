@@ -1,0 +1,17 @@
+using Pumas, Plots, CSV, DataFrames, Statistics
+
+df = CSV.read("C:\\Users\\Delee\\OneDrive\\Desktop\\sample_data.csv",
+    copycols=true)
+
+timeu = u"hr"
+concu = u"mg/L"
+amtu = u"mg"
+
+df.id = df.ID
+df.time = df.TAD
+df.conc = df.DV
+df.amt = df.AMT
+df.route = "iv"
+df.duration = 2.0
+
+pop = read_nca(df, llq=0concu, timeu=timeu, concu=concu, amtu=amtu, duration=duration)
